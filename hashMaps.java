@@ -1,5 +1,6 @@
 import java.util.HashMap;
 import java.util.*;
+
 public class hashMaps {
     public static void main(String[] args) {
         HashMap<String, Integer> hm = new HashMap<>();
@@ -31,17 +32,19 @@ public class hashMaps {
 
         System.out.println(hm);
 
-        //Iterating on HashMap using sets
+        // Iterating on HashMap using sets
         Set<String> keys = hm.keySet();
-        //adding values into hashmap again
+
+        // adding values into hashmap again
         hm.put("India", 150);
         hm.put("USA", 80);
         hm.put("China", 200);
         hm.put("Antartica", 12);
-        //using foreach loop we print the key k along with its value.
-        //we can also use entrySet() for the same.
+        
+        // using foreach loop we print the key k along with its value.
+        // we can also use entrySet() for the same.
         for (String k : keys) {
-            System.out.println("key= "+ k + " value= "+ hm.get(k));      
+            System.out.println("key= " + k + " value= " + hm.get(k));
         }
 
     }
