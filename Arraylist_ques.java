@@ -47,6 +47,28 @@ public class Arraylist_ques {
         Collections.sort(list, Collections.reverseOrder()); //descending order where reverseOrder is a comparator.
         System.out.println("List in descending order= "+list);
 
+        //multidimensional arrayList
+        ArrayList<ArrayList<Integer>> mainList = new ArrayList<>();
+        
+        ArrayList<Integer> listB = new ArrayList<>();
+        listB.add(1);
+        listB.add(2);
 
+        mainList.add(listB);
+
+        ArrayList<Integer> listA = new ArrayList<>();
+        listA.add(3);
+        listA.add(4);
+        
+        mainList.add(listA);
+        
+        for(int i=0; i<mainList.size(); i++){
+            ArrayList<Integer> currList = mainList.get(i);
+            for(int j = 0; j<currList.size(); j++){
+                System.out.print(currList.get(j)+" ");
+            }
+            System.out.println();
+        }
+        System.out.println(mainList);
     }
 }
