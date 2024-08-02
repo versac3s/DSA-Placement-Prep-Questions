@@ -87,6 +87,35 @@ public class binaryTree1 {
                 }
             }
         }
+         //Height of the Tree Time complexity = O(n)
+         public static int height(Node root){
+            if(root==null){
+                return 0;
+            }
+            int lh = height(root.left);
+            int rh = height(root.right);
+            return Math.max(lh,rh)+1;
+        }
+
+        //Count number of nodes Time complexity = O(n)
+        public static int count(Node root){
+            if(root==null){
+                return 0;
+            }
+            int left_count = count(root.left);
+            int right_count = count(root.right);
+            return left_count+right_count +1;
+        }
+
+        //Sum of all nodes. Time complexity = O(n)
+        public static int sum(Node root){
+            if(root==null){
+                return 0;
+            }
+            int left_sum = sum(root.left);
+            int right_sum = sum(root.right);
+            return left_sum+right_sum + root.data;
+        }
     }
     public static void main(String[] args) {
         int node[]={1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
@@ -100,6 +129,8 @@ public class binaryTree1 {
         tree.postorder(root);
         System.out.println();
         tree.levelorder(root);
+        System.out.println("Tree's height= "+ tree.height(root));
+        System.out.println("Number of nodes= "+ tree.count(root));
+        System.out.println("Sum of nodes= "+ tree.sum(root));
     }
-    
 }
