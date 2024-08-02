@@ -12,7 +12,7 @@ public class hashMaps {
         hm.put("Antartica", 12);
         System.out.println(hm);
 
-        // get(key) used to get items from hashmap. Time complexity= O(1)
+        // get(key) used to get key from hashmap. You cannot pass "value" in it. Time complexity= O(1)
         int population = hm.get("India");
         System.out.println(population);
 

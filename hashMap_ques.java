@@ -1,7 +1,7 @@
 import java.util.HashMap;
 import java.util.*;
 
-public class hasMap_ques {
+public class hashMap_ques {
     public static boolean isAnangram(String s, String t) {
         if (s.length() != t.length()) {
             return false;
