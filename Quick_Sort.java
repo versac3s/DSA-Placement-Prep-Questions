@@ -1,4 +1,4 @@
-public class Ouick_Sort {
+public class Quick_Sort {
     public static void printArr(int arr[]) {
         for (int i = 0; i <= arr.length; i++) {
             System.out.println(arr[i] + " ");
@@ -37,3 +37,6 @@ public class Ouick_Sort {
     }
     
 }
+//Time complexity = O(nlogn)
+//No extra space required
+//Worst time complexity= O(n2) when the probelm is divided into 1 and (n-1) parts.
