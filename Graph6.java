@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.LinkedList;
 
 public class Graph6 {
     // Topological Sort
@@ -42,6 +43,7 @@ public class Graph6 {
 
     }
 
+    // TOPOLOGICAL SORT using DFS approach
     public static void topSort(ArrayList<Edge>[] graph) {
         boolean vis[] = new boolean[graph.length];
         Stack<Integer> s = new Stack<>();
@@ -67,11 +69,63 @@ public class Graph6 {
         s.push(curr);
     }
 
+    // TOPOLOGICAL SORT using BFS (KAHN'S ALGORITHM)
+    public static void inDegree(ArrayList<Edge> graph[], int inDeg[]) {
+        for (int i = 0; i < graph.length; i++) {
+            int vertex = i;
+            for (int j = 0; j < graph[vertex].size(); j++) {
+                Edge e = graph[vertex].get(i);
+                inDeg[e.dest]++;
+            }
+        }
+    }
+
+    public static void topSortBFS(ArrayList<Edge> graph[]) {
+        int inDegree[] = new int[graph.length];
+        Queue<Integer> q = new LinkedList<>();
+        for (int i = 0; i < inDegree.length; i++) {
+            // if indegree = 0; add the node to queue
+            if (inDegree[i] == 0) {
+                q.add(i);
+            }
+        }
+        while (!q.isEmpty()) {
+            // remove and print the added node from queue
+            int curr = q.remove();
+            System.out.println(curr);
+            // for the neighbors of the above node printed, subtract 1 from neighbors
+            // inDegree.
+            for (int i = 0; i < graph[curr].size(); i++) {
+                Edge e = graph[curr].get(i);
+                inDegree[e.dest]--;
+                if (inDegree[e.dest] == 0) {
+                    q.add(e.dest);
+                }
+            }
+        }
+    }
+
+    // ALL PATHS FROM SOURCE TO TARGET in directed graph using Recursion.
+    // (exponential time complexity)
+    public static void allPaths(ArrayList<Edge> graph[], int src, int dest, String path) {
+        if (src == dest) {
+            System.out.println(path + dest);
+            return;
+        }
+        for (int i = 0; i < graph[src].size(); i++) {
+            Edge e = graph[src].get(i);
+            allPaths(graph, e.dest, dest, path + src+" -> ");
+        }
+    }
+
     public static void main(String[] args) {
         int V = 5;
         ArrayList<Edge> graph[] = new ArrayList[V];
         createGraph(graph);
         topSort(graph);
+        int src = 0;
+        int dest = 3;
+        allPaths(graph, src, dest, "");
     }
 
 }
